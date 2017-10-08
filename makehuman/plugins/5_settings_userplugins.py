@@ -94,8 +94,8 @@ class UserPluginsTaskView(gui3d.TaskView):
         for i, plugin in enumerate(userPlugins):
             self.userPluginBox.addWidget(UserPluginCheckBox(plugin), row=i, alignment=gui.QtCore.Qt.AlignTop)
 
-        self.installWidget = gui.QtGui.QWidget()
-        installWidgetLayout = gui.QtGui.QVBoxLayout()
+        self.installWidget = gui.QtWidgets.QWidget()
+        installWidgetLayout = gui.QtWidgets.QVBoxLayout()
         self.installWidget.setLayout(installWidgetLayout)
         self.addLeftWidget(self.installWidget)
 
@@ -122,8 +122,9 @@ class UserPluginsTaskView(gui3d.TaskView):
         @self.installZipButton.mhEvent
         def onClicked(event):
 
-            filename = getpath.pathToUnicode(gui.QtGui.QFileDialog.getOpenFileName(gui3d.app.mainwin, directory=self.home,
+            filename = getpath.pathToUnicode(gui.QtWidgets.QFileDialog.getOpenFileName(gui3d.app.mainwin, directory=self.home,
                                              filter='Zip files ( *.zip );; All files ( *.* )'))
+
             dest_path = getpath.getPath('plugins')
             if os.path.isfile(filename):
                 result = self.decompress(filename, dest_path)
@@ -146,7 +147,7 @@ class UserPluginsTaskView(gui3d.TaskView):
 
         @self.installPyButton.mhEvent
         def onClicked(event):
-            filename = getpath.pathToUnicode(gui.QtGui.QFileDialog.getOpenFileName(gui3d.app.mainwin, directory=self.home,
+            filename = getpath.pathToUnicode(gui.QtWidgets.QFileDialog.getOpenFileName(gui3d.app.mainwin, directory=self.home,
                                              filter='Python files ( *.py );; All files ( *.* )'))
             if os.path.isfile(filename) and os.path.splitext(filename)[1] == '.py':
                 try:

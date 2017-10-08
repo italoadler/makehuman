@@ -1,6 +1,6 @@
 # Makehuman (python3)
 
-This is now a near viable  backport of the current MakeHuman 1.1.2 stable branch to a Python 3 dependency version.  The port 
+This is now a near viable port of the current MakeHuman 1.1.1 stable branch to a Python 3 dependency version.  The port 
 includes support for the pyside binding to QT4.  This late addition recognizes the end of availability of the pyQt4 Python binding from Riverbank, and it allows testing to proceed.  However, the intention is ultimately to move to QT5 support as final bugs are fixed.
 
 The testing vision for this code is to build a community release that includes the ported code and often-used, user-contributed 
@@ -19,7 +19,7 @@ Reference branches
 * bitbucket-default: This is the code as it looks in the default branch at bitbucket
 
 Developer branches
-* Aranuvir branch and user=plugins: Aranuvir 
+* Aranuvir's branch
 
 A bug tracker for this port can be found at: http://bugtracker.makehumancommunity.org/projects/py3port/activity
 
