@@ -1930,14 +1930,15 @@ class BrowseButton(Button):
         elif self.mode == 'dir':
             path = QtWidgets.QFileDialog.getExistingDirectory(G.app.mainwin, directory=self.directory)
 
+
         if path:
             if isinstance(path, tuple):
                 path = path[0]
-            path = pathToUnicode(path)
-            if self.mode == 'dir': self.directory = path
-            else: self.path = path
+            if self.mode == 'dir':
+                self.directory = path
+            else:
+                self.path = pathToUnicode(path)
         self.callEvent('onClicked', path)
-
 
 class ColorPickButton(Button):
     """
@@ -2210,12 +2211,11 @@ class ZoomableImageView(QtWidgets.QScrollArea, Widget):
                 if scrollBar.maximum() > 0:
                     scrollBar.setValue(int(scrat[index] * scrollBar.maximum() + displ[index]))
 
-    def save(self, fname):
+    def save(self, fname, iformat=None):
         if not os.path.splitext(fname)[1]:
             fname = fname + '.png'
-
         if self.imageLabel.pixmap():
-            self.imageLabel.pixmap().save (fname)
+            self.imageLabel.pixmap().save(fname, format=iformat)
 
     def mousePressEvent(self, event):
         self.mdown = event.pos()

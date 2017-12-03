@@ -274,6 +274,7 @@ def OnInit():
         debugdump.dump.appendMessage("GL.RENDERER: " + str(glGetString(GL_RENDERER), encoding='UTF-8'))
         debugdump.dump.appendMessage("GL.VERSION: " + str(glGetString(GL_VERSION), encoding='UTF-8'))
         debugdump.dump.appendMessage("GLSL.VERSION: " + str(Shader.glslVersionStr(), encoding='UTF-8'))
+
     except Exception as e:
         log.error("Failed to write GL debug info to debug dump: %s", format(str(e)))
 
